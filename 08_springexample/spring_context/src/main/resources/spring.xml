@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--扫描指定包下标记compent的类进行初始化-->
+    <context:component-scan base-package="com.liu.spring.ioc.bean"/>
+    <!--加载properties配置文件-->
+    <context:property-placeholder location="classpath:prj.properties"/>
+    <!--使用指定的构造器初始化指定bean-->
+    <bean id="one" class="com.liu.spring.ioc.bean.One">
+        <constructor-arg name="one" value="${one}"/>
+    </bean>
+
+    <bean id="two" class="com.liu.spring.ioc.bean.Two">
+        <constructor-arg name="two" value="${two}" />
+        <!--参数的值为one对象-->
+        <constructor-arg name="one" ref="one"/>
+    </bean>
+
+</beans>

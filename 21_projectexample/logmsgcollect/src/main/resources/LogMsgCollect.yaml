@@ -1,0 +1,27 @@
+# Copyright 2015, Yahoo Inc.
+# Licensed under the terms of the Apache License 2.0. Please see LICENSE file in the project root for terms.
+
+#kafka producer setting
+bootstrap.servers: centos-7:9092
+#retries
+retries: 3
+#serializer
+key.serializer: com.liu.logmsgcommon.kafka.KafkaEventSchema
+value.serializer: com.liu.logmsgcommon.kafka.KafkaEventSchema
+acks: all
+## kafka producer exactly once
+enable.idempotence: true
+max.in.flight.requests.per.connection: 3
+#producer topic
+translog.produce.topic: mytopic
+
+##impala setting
+impala.url: jdbc:hive2://centos-7:21050/;auth=noSasl
+impala.username: impala
+impala.password: ""
+impala.driver: org.apache.hive.jdbc.HiveDriver
+
+
+
+
+

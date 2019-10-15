@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+person:
+  name.str: liu
+  age.num: 18
+
+#spring jdbc配置
+spring.datasource.driverClassName: com.mysql.jdbc.Driver
+spring.datasource.url: jdbc:mysql://mincdh:3306/mydb
+spring.datasource.username: root
+spring.datasource.password: 123456
+
+#JPA Configuration:
+spring.jpa.database: MySQL
+spring.jpa.show-sql: true
+#spring.jpa.generate-ddl: true
+#spring.jpa.hibernate.ddl-auto: update
+#spring.jpa.hibernate.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+
+#spring集成Mybatis环境
+#pojo别名扫描包
+#mybatis.type-aliases-package: com.liu.spring.bean
+#加载Mybatis映射文件
+#mybatis.mapper-locations: classpath:mapper/*Mapper.xml
+
+#Redis
+spring.redis.host: mincdh
+spring.redis.port: 6379

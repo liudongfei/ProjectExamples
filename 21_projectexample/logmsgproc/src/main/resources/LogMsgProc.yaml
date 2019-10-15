@@ -1,0 +1,54 @@
+# Copyright 2015, Yahoo Inc.
+# Licensed under the terms of the Apache License 2.0. Please see LICENSE file in the project root for terms.
+##kafka consumer setting
+bootstrap.servers: mincdh:9092
+fetch.min.bytes: 2048
+max.poll.records: 10000
+max.poll.interval.ms: 500
+group.id: myconsumer
+#consume topic
+translog.consume.topic: mytopic
+
+## mysql setting
+db.url: jdbc:mysql://centos-7:3306/mydb
+db.username: root
+db.password: '123456'
+
+## isSinkHbase
+hbase.enable: true
+## isSinkRedis
+redis.enable: true
+## isConsoleEnable
+console.enable: true
+
+## zk root path
+zookeeper.address: mincdh:2181
+zookeeper.rootpath: logmsg
+pauseable.kafka.topic.path: topic_pause/mytopic
+
+
+#redis
+redis.host: mincdh
+redis.port: '6379'
+
+## check point interval
+#checkpoint.interval: 5000
+#checkpoint.timeOut: 600000
+#checkpoint.maxConcurrentThread: 1
+#checkpoint.exactlyOnce: false
+#checkpoint.minPauseMS: 100
+## host count and cpu cores
+#process.hosts: 2
+#process.cores: 30
+
+#
+## window size
+#window.size: 3
+
+
+
+
+
+
+
+

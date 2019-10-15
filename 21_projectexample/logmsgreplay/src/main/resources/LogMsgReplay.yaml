@@ -1,0 +1,99 @@
+# Copyright 2015, Yahoo Inc.
+# Licensed under the terms of the Apache License 2.0. Please see LICENSE file in the project root for terms.
+##kafka setting
+bootstrap.servers: localhost:9092
+zookeeper.address: localhost:2181
+zookeeper.connect: localhost:2181
+
+## mysql setting
+db.url: jdbc:mysql://localhost:3306/mydb
+db.username: root
+db.password: '123456'
+
+## isSinkHbase
+hbase.enable: false
+
+## zk root path
+zookeeper.rootpath: logmsg
+topicId: topic_pause/mytopic
+group.id: myconsumer
+
+#
+## kafka property
+#fetch.min.bytes: 2048
+#max.poll.records: 10000
+#max.poll.interval.ms: 500
+#
+## kafka producer exactly once
+#enable.idempotence: true
+#max.in.flight.requests.per.connection: 3
+#retries: 1
+acks: all
+
+#upstream.bootstrap.servers:
+#    - "{{ upkafka }}"
+#
+#localcluster.bootstrap.servers:
+#   - "{{ bootstrap_servers }}"
+#
+#zookeeper.address:
+#   - "{{ zookeeper_list }}"
+
+
+## host count and cpu cores
+#process.hosts: 2
+#process.cores: 30
+#
+## window size
+#window.size: 3
+#
+## sink maxRecord message to ES
+#max.message.size: 204800
+#
+## check point interval
+#checkpoint.interval: 5000
+#checkpoint.timeOut: 600000
+#checkpoint.maxConcurrentThread: 1
+#checkpoint.exactlyOnce: false
+#checkpoint.minPauseMS: 100
+
+#
+## validColSysFlagList
+#sinkES.colSysFlagList: 1,2,3,4,5
+#
+## sop Request Msg minLen
+#SopRequestMsg.MinLen: 140
+## sop Response Msg minLen
+#SopResponseMsg.MinLen: 96
+#
+## All upstream input topic name
+#AllRecordInTopic: baowen
+#AllRecordInTopic.partitions: 32
+#AllRecordInTopic.consumerGroup: RecordConsumer1
+#
+##Record2ES topic
+#Record2ESInputStreamTopic: AllRecord2ES
+#Record2ESInputStreamTopic.partitions: 44
+#Record2ESInputStreamTopic.consumerGroup: allRecordConsumerGroup
+#
+## bx out topic
+#BXOutTopic: KT_RecordProc_BXOut
+#BXOutTopic.partitions: 11
+#BXOutTopic.consumerGroup: BXOutConsumer1
+#
+## fbx out topic
+#FBXOutTopic: KT_RecordProc_FBXOut
+#FBXOutTopic.partitions: 22
+#FBXOutTopic.consumerGroup: FBXOutConsumer1
+#
+## abnormal out topic
+#AbnormalOutTopic: abnormalOutTopic
+#AbnormalOutTopic.partitions: 11
+#AbnormalOutTopic.consumerGroup: abnormalOutConsumer1
+#
+
+#
+
+
+
+

@@ -1,0 +1,13 @@
+#hdfs先删除后导入，设置并发数量
+import
+--connect
+jdbc:mysql://localhost:3306/employees
+--username
+root
+--password
+123456
+--table
+dept_manager
+--delete-target-dir
+--target-dir
+/user/liudongfei/sqoop/import/dept_manager

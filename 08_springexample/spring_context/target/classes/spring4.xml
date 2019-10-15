@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--加载properties配置文件-->
+    <context:property-placeholder location="classpath:prj.properties"/>
+    <bean id="one" class="com.liu.spring.ioc.bean.One">
+        <constructor-arg name="one" value="${one}"/>
+    </bean>
+
+    <bean id="two" class="com.liu.spring.ioc.bean.Two">
+        <constructor-arg name="two" value="${two}" />
+        <!--参数的值为one对象-->
+        <constructor-arg name="one" ref="one"/>
+    </bean>
+    <bean id="CollectionBean" class="com.liu.spring.ioc.bean.Collection">
+        <property name="lists">
+            <list>
+                <value>1</value>
+                <ref bean="one" />
+                <bean id="two" class="com.liu.spring.ioc.bean.Two">
+                    <constructor-arg name="two" value="${two}" />
+                    <!--参数的值为one对象-->
+                    <constructor-arg name="one" ref="one"/>
+                </bean>
+            </list>
+        </property>
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <ref bean="one" />
+                <bean id="two" class="com.liu.spring.ioc.bean.Two">
+                    <constructor-arg name="two" value="${two}" />
+                    <!--参数的值为one对象-->
+                    <constructor-arg name="one" ref="one"/>
+                </bean>
+            </set>
+        </property>
+        <property name="maps">
+            <map>
+                <entry key="Key 1" value="1" />
+                <entry key="Key 2" value-ref="one" />
+                <entry key="Key 3">
+                    <bean id="two" class="com.liu.spring.ioc.bean.Two">
+                        <constructor-arg name="two" value="${two}" />
+                        <!--参数的值为one对象-->
+                        <constructor-arg name="one" ref="one"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="pros">
+            <props>
+                <prop key="admin">admin@yiibai.com</prop>
+                <prop key="support">support@yiibai.com</prop>
+            </props>
+        </property>
+
+    </bean>
+
+
+
+
+
+
+
+</beans>

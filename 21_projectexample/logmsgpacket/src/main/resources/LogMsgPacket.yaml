@@ -1,0 +1,51 @@
+# Copyright 2015, Yahoo Inc.
+# Licensed under the terms of the Apache License 2.0. Please see LICENSE file in the project root for terms.
+
+## zk root path
+zookeeper.address: localhost:2181
+zookeeper.rootpath: logmsg
+topic.num.path: /topic_num/mytopic
+
+#kafka producer setting
+bootstrap.servers: localhost:9092
+#retries
+retries: 3
+#serializer
+key.serializer: com.liu.logmsgcommon.kafka.KafkaEventSchema
+value.serializer: com.liu.logmsgcommon.kafka.KafkaEventSchema
+acks: all
+## kafka producer exactly once
+enable.idempotence: true
+max.in.flight.requests.per.connection: 3
+#producer topic
+translog.produce.topic: mytopic
+
+
+
+##kafka consumer setting
+fetch.min.bytes: 2048
+max.poll.records: 10000
+max.poll.interval.ms: 500
+group.id: myconsumer
+#consume topic
+translog.packet.topic: mytopic
+key.deserializer: com.liu.logmsgcommon.kafka.KafkaEventSchema
+value.deserializer: com.liu.logmsgcommon.kafka.KafkaEventSchema
+
+## hive db
+hive.db.url: jdbc:hive2://localhost:10000/default
+hive.db.username: liudongfei
+hive.db.password: ''
+
+#redis
+redis.host: localhost
+redis.port: '6379'
+
+#hbase
+hbase.logmsg.table: logmsg
+
+## mysql setting
+db.url: jdbc:mysql://localhost:3306/mydb
+db.username: root
+db.password: '123456'
+
