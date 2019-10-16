@@ -19,6 +19,7 @@
         <module>spring_application1</module>
         <module>spring_config</module>
         <module>spring_zuul</module>
+        <module>spring_application2</module>
     </modules>
 
 </project>

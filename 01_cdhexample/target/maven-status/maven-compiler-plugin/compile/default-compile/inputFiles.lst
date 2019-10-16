@@ -1,0 +1,17 @@
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hive/HiveUtil.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hbase/User2BasicMapReduce.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/common/rpc/impl/People.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hbase/HbaseOperator.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/common/rpc/MyHadoopRpcClient.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/common/rpc/interf/ActionInterf.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hdfs/HdfsUtil.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/util/KerberosUtil.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/common/rpc/MyHadoopRpcServer.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/oozie/hiveact/package-info.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/oozie/mapredact/package-info.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/oozie/sqoopact/package-info.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hbase/HbaseUtil.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/util/PropertiesUtil.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hive/DateTransformUDF.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hive/RemoveQuotesUDF.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/oozie/shellact/package-info.java

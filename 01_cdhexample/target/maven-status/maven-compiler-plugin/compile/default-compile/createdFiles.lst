@@ -1,0 +1,16 @@
+com/liu/cdh/util/KerberosUtil.class
+com/liu/cdh/hdfs/HdfsUtil.class
+com/liu/cdh/hive/DateTransformUDF.class
+com/liu/cdh/hdfs/HdfsUtil$1.class
+com/liu/cdh/hbase/User2BasicMapReduce$UserReadMapper.class
+com/liu/cdh/common/rpc/interf/ActionInterf.class
+com/liu/cdh/hbase/HbaseOperator.class
+com/liu/cdh/util/PropertiesUtil.class
+com/liu/cdh/common/rpc/MyHadoopRpcClient.class
+com/liu/cdh/hbase/User2BasicMapReduce.class
+com/liu/cdh/hbase/HbaseUtil.class
+com/liu/cdh/common/rpc/impl/People.class
+com/liu/cdh/hive/RemoveQuotesUDF.class
+com/liu/cdh/common/rpc/MyHadoopRpcServer.class
+com/liu/cdh/hbase/User2BasicMapReduce$BasicWriteReduce.class
+com/liu/cdh/hive/HiveUtil.class
