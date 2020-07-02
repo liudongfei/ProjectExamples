@@ -49,7 +49,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.40</version>
+            <version>8.0.16</version>
         </dependency>
         <!--使用slf4j + log4j2集成记录日志-->
         <dependency>
