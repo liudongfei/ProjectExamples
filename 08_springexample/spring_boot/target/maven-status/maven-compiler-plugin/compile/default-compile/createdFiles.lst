@@ -1,0 +1,8 @@
+com/liu/spring/repository/StudentRespository.class
+com/liu/spring/controller/ServerController.class
+com/liu/spring/bean/Student.class
+com/liu/spring/MySpringBootApp.class
+com/liu/spring/controller/StudentController2Jpa.class
+com/liu/spring/controller/StudentController1Mybatis.class
+com/liu/spring/controller/QuickController.class
+com/liu/spring/mapper/StudentMapper.class

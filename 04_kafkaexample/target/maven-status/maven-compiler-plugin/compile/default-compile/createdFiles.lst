@@ -1,0 +1,6 @@
+com/liu/kafka/simple/MyKafkaAdminClient.class
+com/liu/kafka/simple/MyKafkaConsumer.class
+com/liu/kafka/simple/MyKafkaProducer.class
+com/liu/kafka/simple/MyKafkaProducer$1.class
+com/liu/kafka/simple/PropertiesUtil.class
+com/liu/kafka/simple/MyPartitioner.class

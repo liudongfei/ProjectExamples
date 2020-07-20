@@ -1,0 +1,9 @@
+import com.liu.java.drools.Car//可以导入类，静态方法
+rule "age>30"
+salience 2
+no-loop true
+when
+    $car : Car(person.age > 30)
+    then
+        $car.setDiscount(80);
+    end
