@@ -2,22 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <groupId>com.liu.example</groupId>
     <artifactId>ProjectExamples</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
+    <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>01_cdhexample</module>
         <module>02_sparkexample</module>
         <module>03_flinkexample</module>
         <module>09_modelexample</module>
-        <module>21_projectexample</module>
         <module>04_kafkaexample</module>
         <module>05_zookeeperexample</module>
         <module>00_javaexample</module>
         <module>10_commonexample</module>
-        <module>22_projectexample</module>
         <module>06_elasticsearchexample</module>
         <module>08_springexample</module>
     </modules>
@@ -184,16 +182,16 @@
                 <version>${gson.version}</version>
             </dependency>
             <!--kafka工具包-->
-            <dependency>
-                <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka_2.11</artifactId>
-                <version>${kafka.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka-clients</artifactId>
-                <version>${kafka.version}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.apache.kafka</groupId>-->
+                <!--<artifactId>kafka_2.11</artifactId>-->
+                <!--<version>${kafka.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.kafka</groupId>-->
+                <!--<artifactId>kafka-clients</artifactId>-->
+                <!--<version>${kafka.version}</version>-->
+            <!--</dependency>-->
             <!--pcap包解析工具-->
             <dependency>
                 <groupId>io.pkts</groupId>

@@ -49,24 +49,13 @@ public class KafkaDirectWordCount {
                 kafkaParams,
                 topics
         );
-        JavaDStream<String> dStream = directStream.flatMap(new FlatMapFunction<Tuple2<String, String>, String>() {
-            @Override
-            public Iterator<String> call(Tuple2<String, String> tuple) throws Exception {
-                return Arrays.asList(tuple._2.split(" ")).iterator();
-            }
-        });
-        JavaPairDStream<String, Integer> dStream1 = dStream.mapToPair(new PairFunction<String, String, Integer>() {
-            @Override
-            public Tuple2<String, Integer> call(String word) throws Exception {
-                return new Tuple2<>(word, 1);
-            }
-        });
-        JavaPairDStream<String, Integer> dStream2 = dStream1.reduceByKey(new Function2<Integer, Integer, Integer>() {
-            @Override
-            public Integer call(Integer v1, Integer v2) throws Exception {
-                return v1 + v2;
-            }
-        });
+        JavaDStream<String> dStream = directStream.flatMap(
+                (FlatMapFunction<Tuple2<String, String>, String>) tuple -> Arrays.asList(tuple._2.split(" "))
+                        .iterator());
+        JavaPairDStream<String, Integer> dStream1 = dStream.mapToPair(
+                (PairFunction<String, String, Integer>) word -> new Tuple2<>(word, 1));
+        JavaPairDStream<String, Integer> dStream2 = dStream1.reduceByKey(
+                (Function2<Integer, Integer, Integer>) (v1, v2) -> v1 + v2);
         dStream2.print();
 
         jssc.start();

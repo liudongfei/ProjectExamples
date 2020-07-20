@@ -1,31 +1,16 @@
-/**
- *
- * Licensed Property to China UnionPay Co., Ltd.
- * 
- * (C) Copyright of China UnionPay Co., Ltd. 2010
- *     All Rights Reserved.
- *
- * 
- * Modification History:
- * =============================================================================
- *   Author         Date          Description
- *   ------------ ---------- ---------------------------------------------------
- *   xshu       2014-05-28       MPI插件包常量定义
- * =============================================================================
- */
 package com.liu.acp.sdk;
+
 /**
- * 
+ * .
  * @ClassName SDKConstants
  * @Description acpsdk常量类
  * @date 2016-7-22 下午4:05:54
- * 声明：以下代码只是为了方便接入方测试而提供的样例代码，商户可以根据自己需要，按照技术文档编写。该代码仅供参考，不提供编码，性能，规范性等方面的保障
  */
 public class SDKConstants {
 
-    public final static String COLUMN_DEFAULT = "-";
+    public static final String COLUMN_DEFAULT = "-";
 
-    public final static String KEY_DELIMITER = "#";
+    public static final String KEY_DELIMITER = "#";
 
     /** memeber variable: blank. */
     public static final String BLANK = "";
@@ -46,28 +31,28 @@ public class SDKConstants {
     public static final String ADD = "+";
 
     /** memeber variable: colon. */
-    public final static String COLON = "|";
+    public static final String COLON = "|";
 
     /** memeber variable: point. */
-    public final static String POINT = ".";
+    public static final String POINT = ".";
 
     /** memeber variable: comma. */
-    public final static String COMMA = ",";
+    public static final String COMMA = ",";
 
     /** memeber variable: slash. */
-    public final static String SLASH = "/";
+    public static final String SLASH = "/";
 
     /** memeber variable: div. */
-    public final static String DIV = "/";
+    public static final String DIV = "/";
 
     /** memeber variable: left . */
-    public final static String LB = "(";
+    public static final String LB = "(";
 
     /** memeber variable: right. */
-    public final static String RB = ")";
+    public static final String RB = ")";
 
     /** memeber variable: rmb. */
-    public final static String CUR_RMB = "RMB";
+    public static final String CUR_RMB = "RMB";
 
     /** memeber variable: .page size */
     public static final int PAGE_SIZE = 10;
@@ -355,37 +340,37 @@ public class SDKConstants {
     public static final String param_userMac = "userMac";
     /** 关联交易. */
     // public static final String param_relationTxnType = "relationTxnType";
-    /** 短信类型 */
+    /** 短信类型. */
     public static final String param_smsType = "smsType";
 
-    /** 风控信息域 */
+    /** 风控信息域. */
     public static final String param_riskCtrlInfo = "riskCtrlInfo";
 
-    /** IC卡交易信息域 */
+    /** IC卡交易信息域. */
     public static final String param_ICTransData = "ICTransData";
 
-    /** VPC交易信息域 */
+    /** VPC交易信息域.*/
     public static final String param_VPCTransData = "VPCTransData";
 
-    /** 安全类型 */
+    /** 安全类型. */
     public static final String param_securityType = "securityType";
 
-    /** 银联订单号 */
+    /** 银联订单号. */
     public static final String param_tn = "tn";
 
-    /** 分期付款手续费率 */
+    /** 分期付款手续费率. */
     public static final String param_instalRate = "instalRate";
 
-    /** 分期付款手续费率 */
+    /** 分期付款手续费率. */
     public static final String param_mchntFeeSubsidy = "mchntFeeSubsidy";
     
-    /** 签名公钥证书 */
+    /** 签名公钥证书. */
     public static final String param_signPubKeyCert = "signPubKeyCert";
 
-    /** 加密公钥证书 */
+    /** 加密公钥证书. */
     public static final String param_encryptPubKeyCert = "encryptPubKeyCert";
     
-    /** 证书类型 */
+    /** 证书类型. */
     public static final String param_certType = "certType";
 
 }

@@ -1,3 +1,4 @@
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hbase/MyCoprocessor1.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hive/HiveUtil.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hbase/User2BasicMapReduce.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/common/rpc/impl/People.java
@@ -10,6 +11,7 @@
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/oozie/hiveact/package-info.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/oozie/mapredact/package-info.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/oozie/sqoopact/package-info.java
+/Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hbase/MyCoprocessor.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hbase/HbaseUtil.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/util/PropertiesUtil.java
 /Users/liudongfei/Myworkspace/workspace/java_workspace/ProjectExamples/01_cdhexample/src/main/java/com/liu/cdh/hive/DateTransformUDF.java

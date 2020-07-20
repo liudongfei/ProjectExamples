@@ -7,7 +7,7 @@ person:
 
 #spring jdbc配置
 spring.datasource.driverClassName: com.mysql.jdbc.Driver
-spring.datasource.url: jdbc:mysql://mincdh:3306/mydb
+spring.datasource.url: jdbc:mysql://mincdh:3306/db_pjep
 spring.datasource.username: root
 spring.datasource.password: 123456
 

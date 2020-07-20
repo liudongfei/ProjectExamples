@@ -2,6 +2,7 @@ package com.liu.acp.security;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -65,6 +66,18 @@ public class EncryptionAES {
     }
 
     /**
+     * 十六进制打印字节数组.
+     * @param b byte[]
+     */
+    public static void printBytes(byte[] b) {
+        for (int i = 0; i < b.length; i++) {
+            System.out.printf("%02X", b[i]);
+        }
+        System.out.println();
+    }
+
+
+    /**
      * main.
      * @param args args
      */
@@ -75,5 +88,15 @@ public class EncryptionAES {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        String msg = "aa11";
+        MessageDigest sha256 = null;
+        try {
+            sha256 = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        sha256.update(msg.getBytes());
+        byte []sha256Bin = sha256.digest();
+        printBytes(sha256Bin);
     }
 }

@@ -64,6 +64,7 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -85,7 +86,7 @@ public class Demo {
         TransportClient client = new PreBuiltTransportClient(settings).addTransportAddress(
                 new TransportAddress(InetAddress.getByName("mincdh"), 9300));
         IndicesAdminClient indicesAdminClient = client.admin().indices();
-        IndicesExistsResponse existsResponse = indicesAdminClient.prepareExists("abc").get();
+        IndicesExistsResponse existsResponse = indicesAdminClient.prepareExists("myindex").get();
         System.out.println(existsResponse.isExists());
 
         client.close();
@@ -117,8 +118,9 @@ public class Demo {
         IndicesAdminClient indicesAdminClient = client.admin().indices();
         // 查询所有索引
         GetIndexResponse getIndexResponse = indicesAdminClient.prepareGetIndex().execute().actionGet();
+        System.out.println(Arrays.asList(getIndexResponse.getIndices()));
         // 根据id查询索引
-        GetIndexResponse blog = indicesAdminClient.prepareGetIndex().setIndices("blog").execute().actionGet();
+        GetIndexResponse blog = indicesAdminClient.prepareGetIndex().setIndices("myindex").execute().actionGet();
         for (String index: blog.getIndices()) {
             System.out.println(index);
         }
@@ -133,6 +135,7 @@ public class Demo {
         Settings settings = Settings.builder().put("cluster.name", "my-cluster").build();
         TransportClient client = new PreBuiltTransportClient(settings).addTransportAddress(
                 new TransportAddress(InetAddress.getByName("mincdh"), 9300));
+
         IndicesAdminClient indicesAdminClient = client.admin().indices();
         AcknowledgedResponse acknowledgedResponse = indicesAdminClient
                 .prepareDelete("myindex").execute().actionGet();
@@ -705,15 +708,23 @@ public class Demo {
      */
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 
+        /**
+         * 索引操作.
+         */
         //isExistIdx();
         //createIdx();
+        //isExistIdx();
         //queryIdx();
         //deleteIdx();
+        //isExistIdx();
+
+
         //insertDoc();
         //queryDoc();
         //updateDoc();
-        //upsertDoc();
-        //deleteDoc();
+        //queryDoc();
+        upsertDoc();
+        deleteDoc();
         //queryMultiDoc();
         //insertMultiDoc();
         //batchProcessor();
@@ -721,8 +732,8 @@ public class Demo {
         //matchQuery();
         //multiMatchQuery();
         //termQuery();
-        termsQuery();
-        rangeQuery();
+        //termsQuery();
+        //rangeQuery();
         //perfixQuery();
         //regQuery();
         //idsQuery();

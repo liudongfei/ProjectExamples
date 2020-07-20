@@ -5,6 +5,7 @@
     <groupId>com.liu.example</groupId>
     <version>1.0</version>
     <artifactId>spring_zuul</artifactId>
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

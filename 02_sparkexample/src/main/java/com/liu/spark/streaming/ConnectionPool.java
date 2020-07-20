@@ -27,7 +27,7 @@ public class ConnectionPool {
      * @return conn
      * @throws SQLException e
      */
-    public synchronized static Connection getConnection() throws SQLException {
+    public static synchronized Connection getConnection() throws SQLException {
         if (connectionQueue == null) {
             connectionQueue = new LinkedList<>();
             for (int i = 1; i <= 10; i++) {

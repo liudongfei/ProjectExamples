@@ -20,7 +20,7 @@ import java.util.List;
  * @Description:
  */
 public class SimpleZKClient {
-    private static final String connString = "localhost:2181";
+    private static final String connString = "mincdh:2181";
     private static final int sessionTimeout = 2000;
     private ZooKeeper zkClient = null;
 

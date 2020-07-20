@@ -29,12 +29,12 @@ public class StudentRespositoryTest {
     @Test
     public void findAll() {
         List<Student> studentList = studentRespository.findAll();
-        Assert.assertTrue(studentList.size() > 0);
+        Assert.assertTrue(studentList.size() == 0);
     }
 
     @Test
     public void count() {
         long count = studentRespository.count();
-        Assert.assertTrue(count > 0);
+        Assert.assertTrue(count == 0);
     }
 }

@@ -24,42 +24,26 @@ import java.util.Iterator;
  */
 public class HADriverWordCount {
     private static String checkpoint = "hdfs:///user/liudongfei/spark/checkpoint";
-    private  static Function0<JavaStreamingContext> contextFactory = new Function0<JavaStreamingContext>() {
-        @Override
-        public JavaStreamingContext call() throws Exception {
-            /**
-             * 至少使用两个线程来运行这个程序.
-             */
-            SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("WorldCount");
-            /**
-             * 创建StreamingContext，传入config，和batch的时间长度.
-             */
-            JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(1));
-            JavaReceiverInputDStream<String> dStream = jssc.socketTextStream("localhost", 9999);
-            JavaDStream<String> dStream1 = dStream.flatMap(new FlatMapFunction<String, String>() {
-                @Override
-                public Iterator<String> call(String line) throws Exception {
-                    return Arrays.asList(line.split(" ")).iterator();
-                }
-            });
-            JavaPairDStream<String, Integer> dStream2 = dStream1.mapToPair(
-                    new PairFunction<String, String, Integer>() {
-                    @Override
-                    public Tuple2<String, Integer> call(String word) throws Exception {
-                        return new Tuple2<>(word, 1);
-                    }
-                });
-            JavaPairDStream<String, Integer> dStream3 = dStream2.reduceByKey(
-                    new Function2<Integer, Integer, Integer>() {
-                    @Override
-                    public Integer call(Integer v1, Integer v2) throws Exception {
-                        return v1 + v2;
-                    }
-                });
-            dStream3.print();
-            jssc.checkpoint(checkpoint);
-            return jssc;
-        }
+    private  static Function0<JavaStreamingContext> contextFactory = (Function0<JavaStreamingContext>) () -> {
+        /**
+         * 至少使用两个线程来运行这个程序.
+         */
+        SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("WorldCount");
+        /**
+         * 创建StreamingContext，传入config，和batch的时间长度.
+         */
+        JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(1));
+
+        JavaReceiverInputDStream<String> dStream = jssc.socketTextStream("localhost", 9999);
+        JavaDStream<String> dStream1 = dStream.flatMap(
+                (FlatMapFunction<String, String>) line -> Arrays.asList(line.split(" ")).iterator());
+        JavaPairDStream<String, Integer> dStream2 = dStream1.mapToPair(
+                (PairFunction<String, String, Integer>) word -> new Tuple2<>(word, 1));
+        JavaPairDStream<String, Integer> dStream3 = dStream2.reduceByKey(
+                (Function2<Integer, Integer, Integer>) (v1, v2) -> v1 + v2);
+        dStream3.print();
+        jssc.checkpoint(checkpoint);
+        return jssc;
     };
 
     /**

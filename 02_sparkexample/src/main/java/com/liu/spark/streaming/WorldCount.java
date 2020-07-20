@@ -35,7 +35,7 @@ public class WorldCount {
         /**
          * 创建StreamingContext，传入config，和batch的时间长度.
          */
-        JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(1));
+        JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(5));
         JavaReceiverInputDStream<String> dStream = jssc.socketTextStream("localhost", 9999);
         JavaDStream<String> dStream1 = dStream.flatMap(new FlatMapFunction<String, String>() {
             @Override

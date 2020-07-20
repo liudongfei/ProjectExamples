@@ -1,9 +1,11 @@
 com/liu/cdh/util/KerberosUtil.class
+com/liu/cdh/hbase/MyCoprocessor1.class
 com/liu/cdh/hdfs/HdfsUtil.class
 com/liu/cdh/hive/DateTransformUDF.class
 com/liu/cdh/hdfs/HdfsUtil$1.class
 com/liu/cdh/hbase/User2BasicMapReduce$UserReadMapper.class
 com/liu/cdh/common/rpc/interf/ActionInterf.class
+com/liu/cdh/hbase/MyCoprocessor.class
 com/liu/cdh/hbase/HbaseOperator.class
 com/liu/cdh/util/PropertiesUtil.class
 com/liu/cdh/common/rpc/MyHadoopRpcClient.class

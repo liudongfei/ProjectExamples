@@ -2,9 +2,11 @@ package com.liu.flink.batch;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.ExecutionEnvironment;
+import org.apache.flink.api.java.io.CsvInputFormat;
 import org.apache.flink.api.java.operators.DataSource;
 import org.apache.flink.api.java.operators.FlatMapOperator;
 import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.core.fs.Path;
 import org.apache.flink.util.Collector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +41,6 @@ public class HdfsFileBatchProcessor {
                 }
             });
         tuple2FlatMapOperator.groupBy(0).sum(1).print();
-        //env.execute();
+        //env.execute(); //批处理不用调用这个方法
     }
 }

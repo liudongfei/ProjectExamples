@@ -1,18 +1,3 @@
-/**
- *
- * Licensed Property to China UnionPay Co., Ltd.
- * 
- * (C) Copyright of China UnionPay Co., Ltd. 2010
- *     All Rights Reserved.
- *
- * 
- * Modification History:
- * =============================================================================
- *   Author         Date          Description
- *   ------------ ---------- ---------------------------------------------------
- *   xshu       2014-05-28       MPI基本参数工具类
- * =============================================================================
- */
 package com.liu.acp.sdk;
 
 import java.io.File;
@@ -23,11 +8,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * 
+ * .
  * @ClassName SDKConfig
  * @Description acpsdk配置文件acp_sdk.properties配置信息类
  * @date 2016-7-22 下午4:04:55
- * 声明：以下代码只是为了方便接入方测试而提供的样例代码，商户可以根据自己需要，按照技术文档编写。该代码仅供参考，不提供编码，性能，规范性等方面的保障
  */
 public class SDKConfig {
     public static final String FILE_NAME = "acp_sdk.properties";
@@ -37,13 +21,13 @@ public class SDKConfig {
     private String backRequestUrl;
     /** 二维码统一下单请求URL. */
     private String orderRequestUrl;
-    /** 单笔查询 */
+    /** 单笔查询. */
     private String singleQueryUrl;
-    /** 批量查询 */
+    /** 批量查询. */
     private String batchQueryUrl;
-    /** 批量交易 */
+    /** 批量交易. */
     private String batchTransUrl;
-    /** 文件传输 */
+    /** 文件传输. */
     private String fileTransUrl;
     /** 签名证书路径. */
     private String signCertPath;
@@ -65,29 +49,29 @@ public class SDKConfig {
     private String encryptTrackKeyExponent;
     /** 有卡交易. */
     private String cardRequestUrl;
-    /** app交易 */
+    /** app交易. */
     private String appRequestUrl;
-    /** 证书使用模式(单证书/多证书) */
+    /** 证书使用模式(单证书/多证书). */
     private String singleMode;
-    /** 安全密钥(SHA256和SM3计算时使用) */
+    /** 安全密钥(SHA256和SM3计算时使用). */
     private String secureKey;
-    /** 中级证书路径  */
+    /** 中级证书路径.  */
     private String middleCertPath;
-    /** 根证书路径  */
+    /** 根证书路径.  */
     private String rootCertPath;
-    /** 是否验证验签证书CN，除了false都验  */
+    /** 是否验证验签证书CN，除了false都验.  */
     private boolean ifValidateCNName = true;
-    /** 是否验证https证书，默认都不验  */
+    /** 是否验证https证书，默认都不验.  */
     private boolean ifValidateRemoteCert = false;
-    /** signMethod，没配按01吧  */
+    /** signMethod，没配按01吧.  */
     private String signMethod = "01";
     /** version，没配按5.0.0  */
     private String version = "5.0.0";
-    /** frontUrl  */
+    /** frontUrl.  */
     private String frontUrl;
-    /** backUrl  */
+    /** backUrl.  */
     private String backUrl;
-    /** frontFailUrl  */
+    /** frontFailUrl.  */
     private String frontFailUrl;
     
     /*缴费相关地址*/
@@ -130,37 +114,37 @@ public class SDKConfig {
     /** 配置文件中的app交易URL常量. */
     public static final String SDK_APP_URL = "acpsdk.appTransUrl";
 
-    /** 以下缴费产品使用，其余产品用不到，无视即可 */
+    /** 以下缴费产品使用，其余产品用不到，无视即可. */
     // 前台请求地址
-    public static final String JF_SDK_FRONT_TRANS_URL= "acpsdk.jfFrontTransUrl";
+    public static final String JF_SDK_FRONT_TRANS_URL = "acpsdk.jfFrontTransUrl";
     // 后台请求地址
-    public static final String JF_SDK_BACK_TRANS_URL="acpsdk.jfBackTransUrl";
+    public static final String JF_SDK_BACK_TRANS_URL = "acpsdk.jfBackTransUrl";
     // 单笔查询请求地址
-    public static final String JF_SDK_SINGLE_QUERY_URL="acpsdk.jfSingleQueryUrl";
+    public static final String JF_SDK_SINGLE_QUERY_URL = "acpsdk.jfSingleQueryUrl";
     // 有卡交易地址
-    public static final String JF_SDK_CARD_TRANS_URL="acpsdk.jfCardTransUrl";
+    public static final String JF_SDK_CARD_TRANS_URL = "acpsdk.jfCardTransUrl";
     // App交易地址
-    public static final String JF_SDK_APP_TRANS_URL="acpsdk.jfAppTransUrl";
+    public static final String JF_SDK_APP_TRANS_URL = "acpsdk.jfAppTransUrl";
     // 人到人
-    public static final String QRC_BACK_TRANS_URL="acpsdk.qrcBackTransUrl";
+    public static final String QRC_BACK_TRANS_URL = "acpsdk.qrcBackTransUrl";
     // 人到人
-    public static final String QRC_B2C_ISS_BACK_TRANS_URL="acpsdk.qrcB2cIssBackTransUrl";
+    public static final String QRC_B2C_ISS_BACK_TRANS_URL = "acpsdk.qrcB2cIssBackTransUrl";
     // 人到人
-    public static final String QRC_B2C_MER_BACK_TRANS_URL="acpsdk.qrcB2cMerBackTransUrl";
+    public static final String QRC_B2C_MER_BACK_TRANS_URL = "acpsdk.qrcB2cMerBackTransUrl";
 
-    /** 以下综合认证产品使用，其余产品用不到，无视即可 */
+    /** 以下综合认证产品使用，其余产品用不到，无视即可. */
     // 前台请求地址
-    public static final String ZHRZ_SDK_FRONT_TRANS_URL= "acpsdk.zhrzFrontTransUrl";
+    public static final String ZHRZ_SDK_FRONT_TRANS_URL = "acpsdk.zhrzFrontTransUrl";
     // 后台请求地址
-    public static final String ZHRZ_SDK_BACK_TRANS_URL="acpsdk.zhrzBackTransUrl";
+    public static final String ZHRZ_SDK_BACK_TRANS_URL = "acpsdk.zhrzBackTransUrl";
     // 单笔查询请求地址
-    public static final String ZHRZ_SDK_SINGLE_QUERY_URL="acpsdk.zhrzSingleQueryUrl";
+    public static final String ZHRZ_SDK_SINGLE_QUERY_URL = "acpsdk.zhrzSingleQueryUrl";
     // 有卡交易地址
-    public static final String ZHRZ_SDK_CARD_TRANS_URL="acpsdk.zhrzCardTransUrl";
+    public static final String ZHRZ_SDK_CARD_TRANS_URL = "acpsdk.zhrzCardTransUrl";
     // App交易地址
-    public static final String ZHRZ_SDK_APP_TRANS_URL="acpsdk.zhrzAppTransUrl";
+    public static final String ZHRZ_SDK_APP_TRANS_URL = "acpsdk.zhrzAppTransUrl";
     // 图片识别交易地址
-    public static final String ZHRZ_SDK_FACE_TRANS_URL="acpsdk.zhrzFaceTransUrl";
+    public static final String ZHRZ_SDK_FACE_TRANS_URL = "acpsdk.zhrzFaceTransUrl";
     
     
     /** 配置文件中签名证书路径常量. */
@@ -186,27 +170,27 @@ public class SDKConfig {
     public static final String SDK_DATE_ENC = "acpsdk.date.enc";
     /** 配置文件中是否加密卡号常量. */
     public static final String SDK_PAN_ENC = "acpsdk.pan.enc";
-    /** 配置文件中证书使用模式 */
+    /** 配置文件中证书使用模式. */
     public static final String SDK_SINGLEMODE = "acpsdk.singleMode";
-    /** 配置文件中安全密钥 */
+    /** 配置文件中安全密钥. */
     public static final String SDK_SECURITYKEY = "acpsdk.secureKey";
-    /** 配置文件中根证书路径常量  */
+    /** 配置文件中根证书路径常量.  */
     public static final String SDK_ROOTCERT_PATH = "acpsdk.rootCert.path";
-    /** 配置文件中根证书路径常量  */
+    /** 配置文件中根证书路径常量.  */
     public static final String SDK_MIDDLECERT_PATH = "acpsdk.middleCert.path";
-    /** 配置是否需要验证验签证书CN，除了false之外的值都当true处理 */
+    /** 配置是否需要验证验签证书CN，除了false之外的值都当true处理. */
     public static final String SDK_IF_VALIDATE_CN_NAME = "acpsdk.ifValidateCNName";
-    /** 配置是否需要验证https证书，除了true之外的值都当false处理 */
+    /** 配置是否需要验证https证书，除了true之外的值都当false处理. */
     public static final String SDK_IF_VALIDATE_REMOTE_CERT = "acpsdk.ifValidateRemoteCert";
-    /** signmethod */
-    public static final String SDK_SIGN_METHOD ="acpsdk.signMethod";
-    /** version */
+    /** signmethod. */
+    public static final String SDK_SIGN_METHOD = "acpsdk.signMethod";
+    /** version. */
     public static final String SDK_VERSION = "acpsdk.version";
-    /** 后台通知地址  */
+    /** 后台通知地址.  */
     public static final String SDK_BACKURL = "acpsdk.backUrl";
-    /** 前台通知地址  */
+    /** 前台通知地址.  */
     public static final String SDK_FRONTURL = "acpsdk.frontUrl";
-    /** 前台失败通知地址  */
+    /** 前台失败通知地址.  */
     public static final String SDK_FRONT_FAIL_URL = "acpsdk.frontFailUrl";
     
     /** 操作对象. */
@@ -227,14 +211,12 @@ public class SDKConfig {
     }
 
     /**
-     * 从properties文件加载
-     * 
-     * @param rootPath
-     *            不包含文件名的目录.
+     * 从properties文件加载.
+     * @param rootPath 不包含文件名的目录.
      */
     public void loadPropertiesFromPath(String rootPath) {
         if (rootPath != null && !"".equals(rootPath.trim())) {
-            LogUtil.writeLog("从路径读取配置文件: " + rootPath+File.separator+FILE_NAME);
+            LogUtil.writeLog("从路径读取配置文件: " + rootPath + File.separator + FILE_NAME);
             File file = new File(rootPath + File.separator + FILE_NAME);
             InputStream in = null;
             if (file.exists()) {
@@ -267,12 +249,13 @@ public class SDKConfig {
     }
 
     /**
-     * 从classpath路径下加载配置参数
+     * 从classpath路径下加载配置参数.
      */
     public void loadPropertiesFromSrc() {
         InputStream in = null;
         try {
-            LogUtil.writeLog("从classpath: " + SDKConfig.class.getClassLoader().getResource("").getPath()+" 获取属性文件"+FILE_NAME);
+            LogUtil.writeLog("从classpath: " + SDKConfig.class.getClassLoader().getResource("").getPath()
+                    + " 获取属性文件" + FILE_NAME);
             in = SDKConfig.class.getClassLoader().getResourceAsStream(FILE_NAME);
             if (null != in) {
                 properties = new Properties();
@@ -282,7 +265,8 @@ public class SDKConfig {
                     throw e;
                 }
             } else {
-                LogUtil.writeErrorLog(FILE_NAME + "属性文件未能在classpath指定的目录下 "+ SDKConfig.class.getClassLoader().getResource("").getPath()+" 找到!");
+                LogUtil.writeErrorLog(FILE_NAME + "属性文件未能在classpath指定的目录下 "
+                        + SDKConfig.class.getClassLoader().getResource("").getPath() + " 找到!");
                 return;
             }
             loadProperties(properties);
@@ -300,9 +284,8 @@ public class SDKConfig {
     }
 
     /**
-     * 根据传入的 {@link #load(Properties)}对象设置配置参数
-     * 
-     * @param pro
+     * 根据传入的对象设置配置参数.
+     * @param pro pro
      */
     public void loadProperties(Properties pro) {
         LogUtil.writeLog("开始从属性文件中加载配置项");
@@ -311,27 +294,28 @@ public class SDKConfig {
         value = pro.getProperty(SDK_SIGNCERT_PATH);
         if (!SDKUtil.isEmpty(value)) {
             this.signCertPath = value.trim();
-            LogUtil.writeLog("配置项：私钥签名证书路径==>"+SDK_SIGNCERT_PATH +"==>"+ value+" 已加载");
+            LogUtil.writeLog("配置项：私钥签名证书路径==>" + SDK_SIGNCERT_PATH + "==>" + value + " 已加载");
         }
         value = pro.getProperty(SDK_SIGNCERT_PWD);
         if (!SDKUtil.isEmpty(value)) {
             this.signCertPwd = value.trim();
-            LogUtil.writeLog("配置项：私钥签名证书密码==>"+SDK_SIGNCERT_PWD +" 已加载");
+            LogUtil.writeLog("配置项：私钥签名证书密码==>" + SDK_SIGNCERT_PWD + " 已加载");
         }
         value = pro.getProperty(SDK_SIGNCERT_TYPE);
         if (!SDKUtil.isEmpty(value)) {
             this.signCertType = value.trim();
-            LogUtil.writeLog("配置项：私钥签名证书类型==>"+SDK_SIGNCERT_TYPE +"==>"+ value+" 已加载");
+            LogUtil.writeLog("配置项：私钥签名证书类型==>" + SDK_SIGNCERT_TYPE + "==>" + value + " 已加载");
         }
         value = pro.getProperty(SDK_ENCRYPTCERT_PATH);
         if (!SDKUtil.isEmpty(value)) {
             this.encryptCertPath = value.trim();
-            LogUtil.writeLog("配置项：敏感信息加密证书==>"+SDK_ENCRYPTCERT_PATH +"==>"+ value+" 已加载");
+            LogUtil.writeLog("配置项：敏感信息加密证书==>" + SDK_ENCRYPTCERT_PATH + "==>" + value + " 已加载");
         }
         value = pro.getProperty(SDK_VALIDATECERT_DIR);
         if (!SDKUtil.isEmpty(value)) {
             this.validateCertDir = value.trim();
-            LogUtil.writeLog("配置项：验证签名证书路径(这里配置的是目录，不要指定到公钥文件)==>"+SDK_VALIDATECERT_DIR +"==>"+ value+" 已加载");
+            LogUtil.writeLog("配置项：验证签名证书路径(这里配置的是目录，不要指定到公钥文件)==>" + SDK_VALIDATECERT_DIR
+                    + "==>" + value + " 已加载");
         }
         value = pro.getProperty(SDK_FRONT_URL);
         if (!SDKUtil.isEmpty(value)) {
@@ -471,14 +455,16 @@ public class SDKConfig {
         
         value = pro.getProperty(SDK_IF_VALIDATE_CN_NAME);
         if (!SDKUtil.isEmpty(value)) {
-            if( SDKConstants.FALSE_STRING.equals(value.trim()))
-                    this.ifValidateCNName = false;
+            if (SDKConstants.FALSE_STRING.equals(value.trim())) {
+                this.ifValidateCNName = false;
+            }
         }
         
         value = pro.getProperty(SDK_IF_VALIDATE_REMOTE_CERT);
         if (!SDKUtil.isEmpty(value)) {
-            if( SDKConstants.TRUE_STRING.equals(value.trim()))
-                    this.ifValidateRemoteCert = true;
+            if (SDKConstants.TRUE_STRING.equals(value.trim())) {
+                this.ifValidateRemoteCert = true;
+            }
         }
         
         value = pro.getProperty(SDK_SIGN_METHOD);
@@ -748,6 +734,7 @@ public class SDKConfig {
     public void setSignMethod(String signMethod) {
         this.signMethod = signMethod;
     }
+
     public String getQrcBackTransUrl() {
         return qrcBackTransUrl;
     }

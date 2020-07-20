@@ -4,19 +4,25 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.BufferedMutatorParams;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Delete;
+import org.apache.hadoop.hbase.client.Durability;
 import org.apache.hadoop.hbase.client.Get;
-import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.filter.Filter;
 import org.apache.hadoop.hbase.filter.PrefixFilter;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.IOUtils;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
 
 /**
  * hbase操作样例.
@@ -30,15 +36,23 @@ public class HbaseOperator {
      * @param tableName tableName
      * @return
      */
-    public static HTable getTableByTableName(String tableName) {
+    public static Table getTableByTableName(String tableName) {
         Configuration configuration = HBaseConfiguration.create();
-        HTable hTable = null;
+
+        Table table = null;
+        Connection connection = null;
         try {
-            hTable = new HTable(configuration, tableName);
+            connection = ConnectionFactory.createConnection(configuration);
+            table = connection.getTable(TableName.valueOf(tableName));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return hTable;
+
+        BufferedMutatorParams mutatorParams = new BufferedMutatorParams(TableName.valueOf(tableName));
+
+        ExecutorService pool = mutatorParams.getPool();
+        mutatorParams.writeBufferSize(10000);
+        return table;
     }
 
     /**
@@ -46,17 +60,18 @@ public class HbaseOperator {
      * @throws IOException exception
      */
     public static void getData() throws IOException {
-        HTable hTable = getTableByTableName("user");
+        Table table = getTableByTableName("user");
+
         Get get = new Get(Bytes.toBytes("10010"));
         get.addColumn(Bytes.toBytes("info"), Bytes.toBytes("age"));
-        Result result = hTable.get(get);
+        Result result = table.get(get);
         for (Cell cell : result.rawCells()) {
             System.out.println(Bytes.toString(CellUtil.cloneRow(cell)) + "\t->\t"
                     + Bytes.toString(CellUtil.cloneFamily(cell)) + ":"
                     + Bytes.toString(CellUtil.cloneQualifier(cell)) + "\t"
                     + Bytes.toString(CellUtil.cloneValue(cell)));
         }
-        IOUtils.closeStream(hTable);
+        IOUtils.closeStream(table);
     }
 
     /**
@@ -64,13 +79,14 @@ public class HbaseOperator {
      * @throws IOException exception
      */
     public static void putData() throws IOException {
-        HTable hTable = getTableByTableName("user");
+        Table table = getTableByTableName("user");
         Put put = new Put(Bytes.toBytes("10010"));
         put.addColumn(Bytes.toBytes("info"), Bytes.toBytes("address"), Bytes.toBytes("age"));
         put.addColumn(Bytes.toBytes("info"), Bytes.toBytes("name"), Bytes.toBytes("sun"));
         put.addColumn(Bytes.toBytes("info"), Bytes.toBytes("age"), Bytes.toBytes(23));
-        hTable.put(put);
-        IOUtils.closeStream(hTable);
+        put.setDurability(Durability.SYNC_WAL);
+        table.put(put);
+        IOUtils.closeStream(table);
     }
 
     /**
@@ -78,13 +94,13 @@ public class HbaseOperator {
      * @throws IOException exception
      */
     public static void deleteData() throws IOException {
-        HTable hTable = getTableByTableName("user");
+        Table table = getTableByTableName("user");
         Delete delete = new Delete(Bytes.toBytes("10003"));
         delete.addColumn(Bytes.toBytes("info"), Bytes.toBytes("age"));
         delete.addColumn(Bytes.toBytes("info"), Bytes.toBytes("address"));
         delete.addColumns(Bytes.toBytes("info"), Bytes.toBytes("age"));
-        hTable.delete(delete);
-        IOUtils.closeStream(hTable);
+        table.delete(delete);
+        IOUtils.closeStream(table);
     }
 
     /**
@@ -92,16 +108,19 @@ public class HbaseOperator {
      * @throws IOException exception
      */
     public static void scanData() throws IOException {
-        HTable hTable = getTableByTableName("user");
+        Table table = getTableByTableName("user");
         Scan scan = new Scan();
-        scan.addColumn(Bytes.toBytes("info"), Bytes.toBytes("name"));
+        //scan.addColumn(Bytes.toBytes("info"), Bytes.toBytes("name"));
         scan.setStartRow(Bytes.toBytes("10002"));
         scan.setStopRow(Bytes.toBytes("10011"));//包头不包尾
         Filter filter = new PrefixFilter(Bytes.toBytes("100"));
         scan.setFilter(filter);
         scan.setCacheBlocks(false);
         scan.setCaching(100);
-        ResultScanner scanner = hTable.getScanner(scan);
+        scan.setAllowPartialResults(true);
+        scan.setMaxResultSize(1000);
+        scan.setBatch(2);
+        ResultScanner scanner = table.getScanner(scan);
         Result res = null;
         while (null != (res = scanner.next())) {
             for (Cell cell : res.rawCells()) {
@@ -111,7 +130,7 @@ public class HbaseOperator {
                         + Bytes.toString(CellUtil.cloneValue(cell)));
             }
         }
-        IOUtils.closeStream(hTable);
+        IOUtils.closeStream(table);
     }
 
     /**
@@ -121,9 +140,9 @@ public class HbaseOperator {
      */
     public static void main(String[] args) throws IOException {
         //getTableByTableName("user");
-        //getData();
+        getData();
         //putData();
         //deleteData();
-        scanData();
+        //scanData();
     }
 }
